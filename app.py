@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 import folium
 from streamlit_folium import st_folium  # 최신 API
 import math
-from fpdf2 import FPDF  # 한글 지원
 
 # =============================================
 # 1. 다국어 사전
