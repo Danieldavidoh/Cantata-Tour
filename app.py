@@ -179,14 +179,14 @@ with col_reset:
         st.rerun()
 
 # =============================================
-# 6. 경로 관리 (핵심 수정: _ → col_unused)
+# 6. 경로 관리
 # =============================================
 if st.session_state.route:
     st.markdown("---")
     available = [c for c in cities if c not in st.session_state.route]
     if available:
         new_city = st.selectbox(_["next_city"], available, key="next_city")
-        col_add, col_unused = st.columns([1, 3])  # _ → col_unused
+        col_add, col_unused = st.columns([1, 3])
         with col_add:
             if st.button(_["add_btn"], use_container_width=True):
                 st.session_state.route.append(new_city)
@@ -312,10 +312,3 @@ if st.session_state.route:
     st_folium(m, width=700, height=500)
 
 st.caption(_["caption"])
-EOF
-
-# Git 푸시 (터미널에서만 실행)
-git add app.py && \
-git commit -m "fix: remove git from Python + col_unused + fpdf2 + st_folium" && \
-git push && \
-echo "완료! 앱 새로고침 → https://cantata-tour-oua8q5vmyrumzxzlgbvzde.streamlit.app"
